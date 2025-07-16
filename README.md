@@ -10,6 +10,21 @@ bun install https://github.com/Voldemortas/kalbynas-tools
 
 ## Documentation
 
+### Accent Replacement
+
+#### `replaceAccents(string)`
+
+Other functions are working with accents being [combining characters](https://en.wikipedia.org/wiki/Combining_character), however, there also exist accented letters on their own.
+This function replaces them all into simple letter + combining character.
+
+```typescript
+replaceAccents(text: string): string
+const accented = 'lãbas'//l U+00E3 bas
+const combined = 'lãbas'//la U+0303 bas
+accented === combined//false
+replaceAccents(accented) === combined//true
+```
+
 ### Accentuation
 
 Accentuation provides 3 functions, all of which uses external calls to [kirčiuoklis](https://kalbu.vdu.lt/mokymosi-priemones/kirciuoklis/).
